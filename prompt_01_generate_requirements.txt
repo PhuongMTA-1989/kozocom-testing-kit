@@ -1,4 +1,4 @@
-/generate_requirements_from_website
+prompt/generate_requirements_from_website
 
 # CONTEXT
 - Mô tả hệ thống: [Mô tả ngắn gọn về hệ thống hiện tại, module hiện tại]
