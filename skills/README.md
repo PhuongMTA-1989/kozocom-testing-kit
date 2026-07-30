@@ -1,8 +1,27 @@
 # QC Testing Skills
 
-Thư mục này chứa các skill hỗ trợ quy trình QA/Testing theo định dạng Kozocom.
+Thư mục này chứa các skill hỗ trợ quy trình QC/Testing theo định dạng Kozocom.
 
 ## Danh sách skills
+
+### `generate-kozocom-api-testcase`
+
+Tạo file testcase API dạng Excel từ OpenAPI/Swagger (`.yaml`, `.yml`, `.json`) hoặc tài liệu API.
+
+**Hỗ trợ coverage:**
+
+- Positive, Validation, Boundary
+- Authentication và Permission
+- Security, Error Handling và Content Type
+- Rate Limit và Regression khi phù hợp
+
+**Thành phần:**
+
+- `SKILL.md`: Hướng dẫn sử dụng skill.
+- `assets/api-testcase-template.xlsx`: Template API testcase.
+- `references/input-schema.md`: Cấu trúc JSON đầu vào và coverage guideline.
+- `scripts/parse_openapi_spec.py`: Parse OpenAPI/Swagger thành thông tin endpoint, parameter, schema, response và security.
+- `scripts/render_api_testcase_workbook.py`: Tạo file Excel testcase API từ dữ liệu đã chuẩn hóa.
 
 ### `generate-kozocom-testcase`
 
@@ -46,6 +65,7 @@ Tạo bug report rõ ràng, có thể tái hiện và phù hợp để nhập l�
 
 ```text
 skills/
+├── generate-kozocom-api-testcase/
 ├── generate-kozocom-testcase/
 ├── generate-kozocom-checklist/
 ├── log-bug/
@@ -64,21 +84,18 @@ Copy folder skill vào `.claude/skills/` của project:
 your-project/
 └── .claude/
     └── skills/
-        └── log-bug/
+        └── generate-kozocom-api-testcase/
             └── SKILL.md
 ```
 
 Hoặc cài cho tất cả project trên máy:
 
 ```text
-~/.claude/skills/log-bug/
+~/.claude/skills/generate-kozocom-api-testcase/
 ```
 
-Mở Claude Code tại project và gọi skill:
+Mở Claude Code tại project và gọi skill bằng `/`.
 
-```text
-/log-bug
-```
 
 ### Codex
 
@@ -88,29 +105,21 @@ Copy folder skill vào `.agents/skills/` của project:
 your-project/
 └── .agents/
     └── skills/
-        └── log-bug/
+        └── generate-kozocom-api-testcase/
             └── SKILL.md
 ```
 
 Hoặc cài cho tất cả project trên máy:
 
 ```text
-~/.agents/skills/log-bug/
+~/.agents/skills/generate-kozocom-api-testcase/
 ```
 
-Mở Codex tại project và gọi skill:
+Mở Codex tại project và gọi skill bằng `$`.
 
-```text
-$log-bug
-```
+> Tên gọi skill được lấy từ trường `name` trong file `SKILL.md`, không nhất thiết trùng hoàn toàn với tên folder.
 
-Ví dụ:
-
-```text
-$log-bug Create a Backlog bug report from this screenshot and test result.
-```
-
-### Các AI tool khác
+## Các AI tool khác
 
 Nếu tool không hỗ trợ tự động nạp skill từ thư mục:
 
