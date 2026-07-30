@@ -1,0 +1,4 @@
+interface:
+  display_name: "Log QA Bugs"
+  short_description: "Create clear, Backlog-ready QA bug reports"
+  default_prompt: "Use $log-bug to create a Backlog-ready bug report from these testing details."
