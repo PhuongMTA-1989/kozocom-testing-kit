@@ -1,4 +1,4 @@
-# QA Testing Skills
+# QC Testing Skills
 
 Thư mục này chứa các skill hỗ trợ quy trình QA/Testing theo định dạng Kozocom.
 
